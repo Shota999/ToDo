@@ -48,22 +48,24 @@ body {
             transition: all 0.3s ease;
 
         }
+
         button:hover {
             background: #d88771;
             color: white;
         }
     }
-    .todo_container{
+
+    .todo_container {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
 
-        .todo_list{
+        .todo_list {
             min-width: 30%;
             list-style: none;
 
-            .todo{
+            .todo {
                 margin: 0.5rem;
                 background: white;
                 color: black;
@@ -73,10 +75,11 @@ body {
                 align-items: center;
                 transition: all .2s ease;
 
-                li{
+                li {
                     flex: 1;
                 }
-                .trash-btn{
+
+                .trash-btn {
                     background: white;
                     color: #ff6f47;
                     border: none;
@@ -86,15 +89,17 @@ body {
                     transition: .2s ease-in-out;
 
 
-                    &:hover{ 
+                    &:hover {
                         background: #ff6f47;
                         color: white;
                     }
-                    .fa-trash{
+
+                    .fa-trash {
                         pointer-events: none;
                     }
                 }
-                .complete-btn{
+
+                .complete-btn {
                     background: white;
                     color: rgb(73, 204, 73);
                     border: none;
@@ -103,19 +108,22 @@ body {
                     font-size: 1rem;
                     transition: .2s ease-in-out;
 
-                    &:hover{ 
+                    &:hover {
                         background: rgb(73, 204, 73);
                         color: white;
                     }
-                    .fa-check{
+
+                    .fa-check {
                         pointer-events: none;
                     }
                 }
-                .todo_item{ 
+
+                .todo_item {
                     padding: 0rem 0.5rem;
                 }
             }
-            .completed{ 
+
+            .completed {
                 text-decoration: line-through;
                 opacity: 0.5;
             }
