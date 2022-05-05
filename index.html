@@ -10,6 +10,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Todo List</title>
 </head>
 
@@ -22,13 +23,20 @@
         <button class="todo_button" type="submit">
             <i class="fas fa-plus-square"></i>
         </button>
+        <div class="select">
+            <select name="todos" class="filter-todo">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="uncompleted">Uncompleted</option>
+            </select>
+        </div>
     </form>
     <div class="todo_container">
         <ul class="todo_list"></ul>
     </div>
 
 
-    <script src="app.js"></script>
+    <script src="old.js"></script>
 </body>
 
 </html>

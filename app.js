@@ -1,66 +1,42 @@
-//Selectors
-
-const todoInput = document.querySelector(".todo_input");
-const todoButton = document.querySelector(".todo_button");
-const todoList = document.querySelector(".todo_list");
-
-//Event Listeners
 
 
-todoButton.addEventListener("click", addTodo);
-todoList.addEventListener("click", deleteCheck);
-
-//Functions
-
-
-function addTodo(event) {
-    // Prevent
-
-    event.preventDefault();
-    // Todo Div
-
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
-    //Create LI
-    const newTodo = document.createElement('li');
-    newTodo.innerText = todoInput.value;
-    newTodo.classList.add('todo_item');
-    todoDiv.appendChild(newTodo);
-
-
-    //Check Mark Button
-    const completedButton = document.createElement('button');
-    completedButton.innerHTML = '<i class="fas fa-check"></i>';
-    completedButton.classList.add("complete-btn");
-    todoDiv.appendChild(completedButton);
-
-
-    //Check Trash Button
-    const trashButton = document.createElement('button');
-    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-    trashButton.classList.add("trash-btn");
-    todoDiv.appendChild(trashButton);
-
-    //Append To List
-
-    todoList.appendChild(todoDiv);
-
-    //Clear Todo Input Value
-    todoInput.value = '';
+function createTodoItem(inputText) {
+    return `<div class="todo">
+        <li class="todo_item">
+            ${inputText}
+        </li>
+        <button class="complete-btn"><i class="fas fa-check"></i></button>
+        <button class="trash-btn"><i class="fas fa-trash"></i></button>
+    </div>`
 }
 
-function deleteCheck(e){
-    const item = e.target;
+$( document ).ready(function() {
 
-    //Delete
-    if(item.classList[0] === "trash-btn"){
-        const todo = item.parentElement;
-        todo.remove();
-    }
+    $( ".todo_button" ).click(function(event) {
+        event.preventDefault();
+        const inputText = $('.todo_input').val();
 
-    //Check Mark
-    if(item.classList[0] === "complete-btn"){
-        const todo = item.parentElement;
-        todo.classList.toggle("completed");
-    }
-}
+        if(inputText === ""){
+            return alert('Check input');
+        }
+
+
+        // 
+        const item  = createTodoItem(inputText);
+
+
+        $('.todo_list').append(item);
+        $('.todo_input').val('');
+    });
+
+
+
+
+    $('body').on('click', '.trash-btn', function() {    
+        $(this).parent(".todo").remove();
+    });
+    $('body').on('click' , '.complete-btn' , function(){
+        $(this).parent(".todo").addClass('completed');
+    });
+
+});
